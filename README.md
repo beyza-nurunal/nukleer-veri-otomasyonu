@@ -12,3 +12,6 @@ How to Run
 You can execute these scripts via Mac Terminal using the following short commands:
 •⁠  ⁠To generate dot-separated TALYS input: python3 n.py
 •⁠  ⁠To generate comma-separated data output: python3 v.py
+### Sample Dataset & Outputs
+•⁠  ⁠ham_veri.txt: A sample raw data file extracted from the IAEA-EXFOR database, featuring multiple unstructured columns used to test and verify the automation scripts.
+•⁠  ⁠n_cikti.txt: The standardized TALYS input file generated automatically by n.py, containing the correct headers and cleanly parsed 1st, 2nd, and 4th columns with dot (.) formatting.
