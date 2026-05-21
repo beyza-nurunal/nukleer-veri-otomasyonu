@@ -1,6 +1,5 @@
-Nuclear Data Parsing and Automation System (TALYS and IAEA-EXFOR)
-This repository contains Python-based data processing scripts developed to automatically filter, format, and prepare raw excitation function data sets obtained from the IAEA (EXFOR) nuclear database for the TALYS nuclear reaction simulation code.
-Features and Solved Problems
+# EXFOR-to-TALYS Nuclear Data Preprocessing PipelineThis repository contains Python-based data processing scripts developed to automatically filter, format, and prepare raw excitation function data sets obtained from the IAEA (EXFOR) nuclear database for the TALYS nuclear reaction simulation code.
+Python-based preprocessing and parsing tools developed for converting raw IAEA-EXFOR nuclear reaction datasets into TALYS-compatible input formats.Features and Solved Problems
 •⁠  ⁠Automatically selects and extracts the 1st, 2nd, and 4th columns (Energy, dEne, and dSig) from the raw data while filtering out the unwanted 3rd column.
 •⁠  ⁠Instantly isolates critical nuclear analysis parameters and formats them in clean columns.
 •⁠  ⁠Performs dot/comma format synchronization automatically via n.py and v.py scripts to match different software environment requirements.
