@@ -1,16 +1,29 @@
-# EXFOR-to-TALYS Nuclear Data Preprocessing PipelineThis repository contains Python-based data processing scripts developed to automatically filter, format, and prepare raw excitation function data sets obtained from the IAEA (EXFOR) nuclear database for the TALYS nuclear reaction simulation code.
-Python-based preprocessing and parsing tools developed for converting raw IAEA-EXFOR nuclear reaction datasets into TALYS-compatible input formats.Features and Solved Problems
-•⁠  ⁠Automatically selects and extracts the 1st, 2nd, and 4th columns (Energy, dEne, and dSig) from the raw data while filtering out the unwanted 3rd column.
-•⁠  ⁠Instantly isolates critical nuclear analysis parameters and formats them in clean columns.
-•⁠  ⁠Performs dot/comma format synchronization automatically via n.py and v.py scripts to match different software environment requirements.
-•⁠  ⁠Automatically injects necessary TALYS input headers (element name, mass number, and projectile type) at the top of the output files.
-Script Details
-•⁠  ⁠n.py: Automated parsing tool that extracts columns 1, 2, and 4, and converts decimals to dot (.) format for direct TALYS inputs.
-•⁠  ⁠v.py: Automated parsing tool that extracts columns 1, 2, and 4, and converts decimals to comma (,) format for local data analysis or Excel synchronization.
-How to Run
-You can execute these scripts via Mac Terminal using the following short commands:
-•⁠  ⁠To generate dot-separated TALYS input: python3 n.py
-•⁠  ⁠To generate comma-separated data output: python3 v.py
-### Sample Dataset & Outputs
-•⁠  ⁠ham_veri.txt: A sample raw data file extracted from the IAEA-EXFOR database, featuring multiple unstructured columns used to test and verify the automation scripts.
-•⁠  ⁠n_cikti.txt: The standardized TALYS input file generated automatically by n.py, containing the correct headers and cleanly parsed 1st, 2nd, and 4th columns with dot (.) formatting.
+# EXFOR-to-TALYS Nuclear Data Preprocessing Pipeline
+
+This project is a Python-based data preprocessing pipeline designed to parse, clean, and structure raw nuclear excitation function datasets obtained from the IAEA EXFOR database. The processed outputs are formatted for further use in statistical analysis and TALYS nuclear reaction simulations.
+
+⸻
+
+# Features
+
+•⁠  ⁠Automated Directory Processing
+    The script automatically detects reaction folders in the working directory and processes all valid datasets without hardcoded paths.
+•⁠  ⁠Robust Data Parsing using Pandas
+    Raw EXFOR data is handled using column-based indexing to reduce errors caused by inconsistent spacing or formatting in input files.
+• ⁠Isolated Output Structure
+    Each reaction directory contains an automatically generated outputs/ folder to store processed files without modifying raw data.
+ # ⁠Dual Output Generation
+    The pipeline generates two types of outputs:
+     Excel Output: Cleaned dataset in .xlsx format for analysis (Energy, Cross Section, Error)
+     TALYS-Compatible Text Output: Extracted columns formatted for simulation workflows and verification purposes
+    nukleer-veri-otomasyonu/
+│
+├── data_transformer.py        # Ana veri işleme scripti
+├── README.md
+│
+└── [reaksiyon_klasörü]/
+    ├── veri1.txt              # Ham EXFOR giriş verisi
+    │
+    └── outputs/
+        ├── veri1_excel.xlsx   # İşlenmiş analitik veri seti
+        └── veri1_talys.txt    # TALYS uyumlu formatlanmış çıktı
