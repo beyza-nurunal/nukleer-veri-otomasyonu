@@ -1,60 +1,62 @@
 # EXFOR-to-TALYS Nuclear Data Preprocessing Pipeline
 
-This project is a Python-based data preprocessing pipeline designed to parse, clean, and structure raw nuclear excitation function data from the IAEA EXFOR database and converts it into structured formats for analysis and TALYS nuclear reaction calculations.
+A Python-based automation pipeline developed for preprocessing experimental nuclear reaction data obtained from the IAEA EXFOR database and preparing structured inputs for TALYS simulations.
 
-The repository includes real processed outputs and a working TALYS-compatible input example generated from actual datasets.
+## Purpose
 
----
+This project was developed to reduce manual preprocessing time in nuclear reaction analysis workflows and standardize TALYS input preparation for large experimental datasets. 
 
 ## Features
 
-* **Automated Directory Processing**
-  The script automatically detects reaction folders in the working directory and processes all valid datasets without hardcoded paths.
-* **EXFOR Data Parsing and Cleaning**
-  Raw experimental data is parsed using Pandas-based column handling to ensure robustness against inconsistent formatting and spacing in EXFOR files.
-* **Non-destructive Processing Workflow**
-  Input data is never modified. All generated outputs are saved in a separate outputs/ directory inside each reaction folder.
-* **TALYS-Compatible Output Generation**
-  The pipeline extracts and formats Energy and Error values (Columns 1 and 3) into a structured text format suitable for simulation and error analysis workflows.
-* **Analytical Output Generation**
-  A structured Excel file (.xlsx) is generated for further analysis and validation.
+* Automatic reaction-folder detection
+* Multi-file EXFOR dataset parsing
+* Experimental uncertainty handling
+* Automatic author/year extraction
+* Structured Excel report generation
+* TALYS `.inp` file generation
+* Shared energy grid generation
+* Multi-LDModel support
+* Batch processing architecture
 
-nukleer-veri-otomasyonu/
-│
-├── data_transformer.py        # Main preprocessing script
-├── README.md
-│
-├── talys_input_example.inp    # Example TALYS input file (real use case)
-├── example_output.xlsx        # Example processed dataset (from real data)
-│
-└── [reaction_directory]/
-    ├── veri1.txt              # Raw EXFOR input data
-    │
-    └── outputs/
-        ├── veri1_excel.xlsx   # Processed dataset (Energy, Cross Section, Error)
-        └── veri1_talys.txt    # TALYS-compatible formatted output
-        
-## Requirements
-Python 3.8+
-pandas
-openpyxl
-Install dependencies:
+## Technologies Used
 
-pip install pandas openpyxl
+* Python (Pandas, OpenPyXL, Regular Expressions)
+* TALYS Nuclear Reaction Code
+* IAEA EXFOR Database
 
-## Usage
-Run the pipeline from the project root directory:
+## Project Structure
 
-python3 data_transformer.py
-The script will:
-Scan all reaction directories
-Parse raw EXFOR datasets
-Generate processed outputs inside each outputs/ folder
-Generated Outputs
-Excel file: Structured dataset for analysis
-TALYS file: Simulation-ready formatted numeric columns
-Included Real Outputs
-This repository also contains:
-A working TALYS input file generated from processed data
-A real Excel output file created from EXFOR datasets
-Example outputs demonstrating end-to-end pipeline execution
+EFOR_PROJE/
+├── reaction_folder_1/
+│   ├── dataset1.txt
+│   ├── dataset2.dat
+│   ├── input_ld1.inp
+│   ├── input_ld2.inp
+│   └── enerji
+├── reaction_folder_2/
+├── data_transformer.py
+└── MASTER_EXFOR.xlsx
+
+## Example Outputs
+The repository includes:
+Generated TALYS input files
+Automatically produced Excel reports
+Sample processed EXFOR datasets
+Shared energy-grid files
+## Excel Output Structure
+The pipeline dynamically creates separate TALYS sections for each selected Level Density (LD) model. Each worksheet contains the following structured data:
+Experimental Data	Shared Energy Grid	TALYS Calculations
+Energy (MeV)	Common Energies	TALYS LD Models
+Cross Section (mb)		
+Uncertainty (mb)		
+## Future Improvements
+Automatic TALYS output parsing
+Direct EXFOR API integration
+Plot generation and visualization
+Statistical model comparison
+GUI support
+Parallel processing optimization
+
+Author
+Beyzanur Ünal Physics Student
+Nuclear Data Processing & TALYS Automation
