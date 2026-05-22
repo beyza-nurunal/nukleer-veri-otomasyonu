@@ -131,7 +131,7 @@ def veri_oku(dosya_yolu):
 # ============================================
 # MASTER EXCEL OLUSTURMA
 # ============================================
-excel_yolu = "MASTER_EXFOR_YENI.xlsx"
+excel_yolu = "MASTER_EXFOR.xlsx"
 wb = Workbook()
 wb.remove(wb.active)
 
