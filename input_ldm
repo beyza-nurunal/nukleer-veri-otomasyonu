@@ -1,0 +1,9 @@
+#
+#reaction reaksiyon1:
+#
+projectile x
+element xx
+mass 0
+energy enerji
+ldmodel 7
+legacy y
